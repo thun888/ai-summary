@@ -1,0 +1,12 @@
+name = "aicontent"
+main = "src/index.js"
+compatibility_date = "2024-02-14"
+workers_dev = true
+
+[[routes]]
+pattern = "dolgpt.hzchu.top/*"
+zone_name = "thun888.eu.org"
+
+[[kv_namespaces]]
+id = "32ec5549321c47039d9a5244a924f6d0"
+binding = "KV"
