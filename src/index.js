@@ -3,6 +3,8 @@ addEventListener('fetch', event => {
 })
 
 const gemini_key = GEMINI_KEY
+const allowedOrigins = ALLOWED_ORIGINS
+// const allowedOrigins = '*'
 // const gemini_key = ""
 
 async function handleRequest(request) {
@@ -10,7 +12,7 @@ async function handleRequest(request) {
     // 预检请求。回应它！
     return new Response(null, {
       headers: {
-        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Origin': allowedOrigins,
         // 允许的方法
         'Access-Control-Allow-Methods': 'GET,POST',
         // 允许的头部信息
@@ -32,7 +34,7 @@ async function handleRequest(request) {
     const aicontent = await buildBackContent(realurl,content)
 
     response = new Response(JSON.stringify({id: 114514,summary: aicontent,user_openid: "" ,err_msg: "", error_id: ""}), {
-      headers: { 'content-type': 'application/json','Access-Control-Allow-Origin': '*' },
+      headers: { 'content-type': 'application/json','Access-Control-Allow-Origin': allowedOrigins },
     });
   } else if (request.method === 'POST') {
     const reqcontent = await request.text();
@@ -46,7 +48,7 @@ async function handleRequest(request) {
     const aicontent = await buildBackContent(realurl,content)
 
     response = new Response(JSON.stringify({id: 114514,summary: aicontent,user_openid: "" ,err_msg: "", error_id: ""}), {
-      headers: { 'content-type': 'application/json','Access-Control-Allow-Origin': '*' },
+      headers: { 'content-type': 'application/json','Access-Control-Allow-Origin': allowedOrigins },
     });
   
   } else {

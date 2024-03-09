@@ -10,3 +10,7 @@ zone_name = "thun888.eu.org"
 [[kv_namespaces]]
 id = "32ec5549321c47039d9a5244a924f6d0"
 binding = "KV"
+
+[vars]
+GEMINI_KEY = ""
+ALLOWED_ORIGINS = "https://blog.hzchu.top"
